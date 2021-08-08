@@ -1,8 +1,11 @@
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import PropTypes from 'prop-types';
 import { Contact, ContactItem, BtnDelete, Text } from './ContactsList.styles';
 import { AiOutlineDelete, AiOutlineUser } from 'react-icons/ai';
 
-const ContactsList = ({ contacts, onDeleteContact }) => {
+const ContactsList = ({ onDeleteContact }) => {
+ const contacts = useSelector(state => state.todo)
     return (
         <Contact>
             {contacts.map(({ id, name, number }) => (

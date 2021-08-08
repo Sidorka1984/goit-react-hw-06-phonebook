@@ -1,24 +1,29 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
+import { useDispatch, useSelector } from "react-redux";
+import { addContact } from '../../redux/actions/todo.js';
 import { Input, TitleSecond, Button } from './Form.styles';
 import { FiUser, FiPhoneCall } from 'react-icons/fi';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import PropTypes from 'prop-types';
 
-export default function Form({ onSubmit }) {
-    const [name, setName] = useState('')
-    const [number, setNumber] = useState('')
+export default function Form() {
+    const [name, setName] = useState('');
+    const [number, setNumber] = useState('');
+    const dispatch = useDispatch();
 
     const nameInputId = uuidv4();
     const numberInputId = uuidv4();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSubmit(name, number);
+        dispatch(addContact(name, number));
+        
+        // onSubmit(name, number);
         reset();
     };
     const heandleChange = (e) => {
-        const { name, value } = e.target
+        const { name, value } = e.target;
 
         switch (name) {
             case 'name':
