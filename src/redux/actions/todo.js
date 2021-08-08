@@ -9,9 +9,9 @@ export const addContact = (name, number) => ({
     number,
   },
 });
-export const onDelete = (contactId) => ({
+export const onDelete = (Id) => ({
   type: DELETE_CONTACT,
-  payload: contactId,
+  payload: Id,
 });
 export const veluesFilter = (value) => ({
   type: VALUES_FILTER,

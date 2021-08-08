@@ -17,6 +17,7 @@ export default function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        
         dispatch(addContact(name, number));
         
         // onSubmit(name, number);
