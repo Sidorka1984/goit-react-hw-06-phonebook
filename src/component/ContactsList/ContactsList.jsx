@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { onDelete } from '../../redux/actions/todo.js';
+import { onDelete } from '../../redux/slices/todo.js';
 import PropTypes from 'prop-types';
 import { Contact, ContactItem, BtnDelete, Text } from './ContactsList.styles';
 import { AiOutlineDelete, AiOutlineUser } from 'react-icons/ai';

@@ -1,4 +1,6 @@
-import { createSlice, reateAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+// import { number, string } from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 const todoSlice = createSlice({
   name: "todo",
@@ -9,7 +11,13 @@ const todoSlice = createSlice({
     { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
   ],
   reducers: {
-    addContact: (state, action) => [...state, action.payload],
+    addContact: (state, action) => {
+      state.push({
+        id: uuidv4(),
+        name: action.payload,
+        number: action.payload.number,
+      });
+    },
     onDelete: (state, action) =>
       state.filter((todo) => todo.id !== action.payload),
   },

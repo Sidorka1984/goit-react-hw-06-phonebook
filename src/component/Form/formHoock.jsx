@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from '../../redux/actions/todo.js';
+import { addContact } from '../../redux/slices/todo.js';
 import { Input, TitleSecond, Button } from './Form.styles';
 import { FiUser, FiPhoneCall } from 'react-icons/fi';
 import { AiOutlineUserAdd } from 'react-icons/ai';
