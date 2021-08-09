@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, reateAction } from "@reduxjs/toolkit";
 
 const todoSlice = createSlice({
   name: "todo",
@@ -15,5 +15,5 @@ const todoSlice = createSlice({
   },
 });
 
-export const { addTodo, deleteTodo } = todoSlice.actions;
+export const { addContact, onDelete } = todoSlice.actions;
 export default todoSlice.reducer;
