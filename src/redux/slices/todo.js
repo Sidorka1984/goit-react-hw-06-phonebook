@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { number, string } from "prop-types";
 import { v4 as uuidv4 } from "uuid";
+import formHoock from "../../component/Form/formHoock.jsx";
 
 const todoSlice = createSlice({
   name: "todo",
@@ -15,7 +15,8 @@ const todoSlice = createSlice({
       state.push({
         id: uuidv4(),
         name: action.payload,
-        number: action.payload.number,
+        number: action.payload,
+        // number: number;
       });
     },
     onDelete: (state, action) =>

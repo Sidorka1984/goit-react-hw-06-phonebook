@@ -1,20 +1,20 @@
-import { createAction } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
-// import { addContact } from "../slices/todo";
-
-const contactsActions = {
-  addContact: createAction("contacts/add", ({ name, number }) => ({
-    payload: {
-      id: uuidv4(),
-      name,
-      number,
-    },
-  })),
-  onDelete: createAction("contacts/delete"),
-  changeFilter: createAction("contacts/changeFilter"),
-};
-
-export default contactsActions;
+// import { createAction } from "@reduxjs/toolkit";
+// import { v4 as uuidv4 } from "uuid";
+//
+//
+// const contactsActions = {
+// addContact: createAction("contacts/add", ({ name, number }) => ({
+// payload: {
+// id: uuidv4(),
+// name,
+// number,
+// },
+// })),
+// onDelete: createAction("contacts/delete"),
+// changeFilter: createAction("contacts/changeFilter"),
+// };
+//
+// export default contactsActions;
 
 // import { ADD_CONTACT, DELETE_CONTACT, VALUES_FILTER } from "../types";
 //
