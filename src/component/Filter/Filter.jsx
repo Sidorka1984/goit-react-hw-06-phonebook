@@ -1,15 +1,16 @@
 // import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from "react-redux";
 import { Input } from '../Form/Form.styles';
 import { Text } from './Filter.styles';
-import { getFilter } from "../../redux/selectors.js";
-import * as actions from "../../redux/actions.js";
+import { useSelector, useDispatch } from "react-redux";
+import { getFilter } from '../../redux/selectors';
+import * as actions from '../../redux/actions.js';
+
+
 
 const Filter = () => {
     const value = useSelector(getFilter);
     const dispatch = useDispatch();
-    // const onChange = (e) => dispatch(actions.changeFilter(e.target.value));
-    
+    const onChange = (e) => dispatch(actions.changeFilter(e.target.value));
     return (
         <>
             <Text>Find contacts by name</Text>
@@ -20,16 +21,11 @@ const Filter = () => {
                 pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                 title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
                 value={value}
-                onChange={(e) => dispatch(actions.changeFilter(e.target.value))}
+                onChange={onChange}
                 required>
                 
             </Input>
         </>
     )
 }
-// Filter.propTypes = {
-    // value: PropTypes.string,
-    // onChange: PropTypes.func.isRequired,
-// };
-// 
 export default Filter;

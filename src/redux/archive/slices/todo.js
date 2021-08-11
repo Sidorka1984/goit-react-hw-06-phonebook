@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
-import formHoock from "../../component/Form/formHoock.jsx";
+import formHoock from "../../../component/Form/formHoock.jsx";
 
 const todoSlice = createSlice({
   name: "todo",
@@ -14,8 +14,8 @@ const todoSlice = createSlice({
     addContact: (state, action) => {
       state.push({
         id: uuidv4(),
-        name: action.payload,
-        number: action.payload,
+        ...action.payload,
+
         // number: number;
       });
     },
