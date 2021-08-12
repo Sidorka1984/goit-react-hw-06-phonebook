@@ -6,6 +6,7 @@ import { AiOutlineDelete, AiOutlineUser } from 'react-icons/ai';
 import * as actions from "../../redux/actions.js";
 import { getVisibleContacts } from "../../redux/selectors.js";
 
+
 const ContactsList = () => {
     // const contacts = useSelector((state) => state.todo);
     const contacts = useSelector(getVisibleContacts);

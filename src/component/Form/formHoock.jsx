@@ -8,7 +8,7 @@ import { AiOutlineUserAdd } from 'react-icons/ai';
 import { getContacts } from "../../redux/selectors.js";
 import * as actions from '../../redux/actions.js';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 
 export default function Form() {
@@ -92,6 +92,6 @@ export default function Form() {
     )
 
 }
-Form.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-}
+// Form.propTypes = {
+    // onSubmit: PropTypes.func.isRequired,
+// }
