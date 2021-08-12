@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
 // import { addContact } from '../../redux/slices/todo.js';
 import { Input, TitleSecond, Button } from './Form.styles';
 import { FiUser, FiPhoneCall } from 'react-icons/fi';
@@ -43,9 +44,15 @@ export default function Form() {
         e.preventDefault();
 
         if (contacts.some((contact) => contact.name === name)) {
-            console.log(`${name} already in the contacts.`);
+            toast.error(`${name} already in the contacts.`);
+            reset();
             return;
         }
+         if (contacts.some((contact) => contact.number === number)) {
+             toast.error(`${number} already in the contacts.`);
+             reset();
+             return;
+        };
 
         dispatch(actions.addContact({ name, number }));
 

@@ -17,7 +17,7 @@ import contactsReducer from "./reducer";
 const persistConfig = {
   key: "contacts",
   storage,
-  blacklist: ["filter", "_persist"],
+  blacklist: ["filter"],
 };
 
 const middleware = [
