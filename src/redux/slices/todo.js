@@ -4,8 +4,7 @@ import { combineReducers } from "redux";
 import initialContacts from "../../Data/contacts.json";
 
 const initialState = {
-  contacts:
-    JSON.parse(window.localStorage.getItem("contacts")) ?? initialContacts,
+  contacts: initialContacts,
   filter: "",
 };
 
