@@ -3,14 +3,15 @@ import { Input } from '../Form/Form.styles';
 import { Text } from './Filter.styles';
 import { useSelector, useDispatch } from "react-redux";
 import { getFilter } from '../../redux/selectors';
-import * as actions from '../../redux/actions.js';
+// import * as actions from '../../redux/actions.js';
+import { changeFilter } from '../../redux/slices/todo';
 
 
 
 const Filter = () => {
     const value = useSelector(getFilter);
     const dispatch = useDispatch();
-    const onChange = (e) => dispatch(actions.changeFilter(e.target.value));
+    const onChange = (e) => dispatch(changeFilter(e.target.value));
     return (
         <>
             <Text>Find contacts by name</Text>
