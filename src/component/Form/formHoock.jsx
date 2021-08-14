@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
-// import { addContact } from '../../redux/slices/todo.js';
+import { addContact } from '../../redux/slices/todo.js';
 import { Input, TitleSecond, Button } from './Form.styles';
 import { FiUser, FiPhoneCall } from 'react-icons/fi';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import { getContacts } from "../../redux/selectors.js";
-import * as actions from '../../redux/actions.js';
+// import * as actions from '../../redux/actions.js';
 
 // import PropTypes from 'prop-types';
 
@@ -16,9 +16,8 @@ export default function Form() {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
-
-    const dispatch = useDispatch();
     const contacts = useSelector(getContacts);
+    const dispatch = useDispatch();   
 
 
     const nameInputId = uuidv4();
@@ -43,20 +42,34 @@ export default function Form() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (contacts.some((contact) => contact.name === name)) {
-            toast.error(`${name} already in the contacts.`);
+        if (contacts.some((contact) => contact.name === name || contact.number === number)) {
+            toast.error(`${name} or ${number} already in the contacts.`);
+            
             reset();
             return;
-        }
-         if (contacts.some((contact) => contact.number === number)) {
-             toast.error(`${number} already in the contacts.`);
-             reset();
-             return;
+        } else {
+            dispatch(addContact({
+                id: uuidv4(),
+                name,
+                number,
+            }))
+            reset();
         };
 
-        dispatch(actions.addContact({ name, number }));
+        // if (contacts.some((contact) => contact.name === name)) {
+            // toast.error(`${name} already in the contacts.`);
+            // reset();
+            // return;
+        // }
+        //  if (contacts.some((contact) => contact.number === number)) {
+            //  toast.error(`${number} already in the contacts.`);
+            //  reset();
+            //  return;
+        // };
 
-        reset();
+        // dispatch(actions.addContact({ name, number }));
+
+        // reset();
     };
 
     const reset = () => {

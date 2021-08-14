@@ -7,11 +7,15 @@ import Filter from "./Filter/Filter.jsx";
 import ContactsList from "./ContactsList/ContactsList.jsx";
 import { GrContactInfo } from "react-icons/gr";
 // import ContactsJson from "../Data/contacts.json";
-// import { useSelector } from "react-redux";
-// import { getContacts } from "../redux/selectors";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getContacts } from "../redux/selectors";
 
 export default function App() {
-  // const contacts = useSelector(getContacts);
+  const contacts = useSelector(getContacts);
+  useEffect(() => {
+    window.localStorage.setItem("contacts", JSON.stringify(contacts));
+  }, [contacts]);
 
   return (
     <Container title="Phonebook">

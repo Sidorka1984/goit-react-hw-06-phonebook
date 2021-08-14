@@ -1,17 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { onDelete } from '../../redux/slices/todo.js';
+import { deleteContact } from '../../redux/slices/todo.js';
 import { Contact, ContactItem, BtnDelete, Text } from './ContactsList.styles';
 import { AiOutlineDelete, AiOutlineUser } from 'react-icons/ai';
-import * as actions from "../../redux/actions.js";
+// import * as actions from "../../redux/actions.js";
 import { getVisibleContacts } from "../../redux/selectors.js";
 
 
 const ContactsList = () => {
-    // const contacts = useSelector((state) => state.todo);
     const contacts = useSelector(getVisibleContacts);
     const dispatch = useDispatch();
-    const onDeleteContact = (id) => dispatch(actions.deleteContact(id));
+    const onDeleteContact = (id) => dispatch(deleteContact(id));
     return (
         <Contact>
             {contacts.map(({ id, name, number }) => (
